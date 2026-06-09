@@ -1,77 +1,723 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rajnish Pandit - Resume</title>
-<style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #f9f9f9; color: #333; }
-    header { background: #0d6efd; color: white; padding: 40px 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 2.5em; }
-    header p { margin: 5px 0 0; font-size: 1.1em; }
-    section { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-    h2 { border-bottom: 2px solid #0d6efd; padding-bottom: 5px; color: #0d6efd; }
-    ul { list-style: none; padding: 0; }
-    ul li { margin-bottom: 10px; }
-    .skills li { display: inline-block; margin-right: 15px; background: #0d6efd; color: white; padding: 5px 10px; border-radius: 5px; }
-    footer { text-align: center; padding: 20px; background: #222; color: #fff; }
-    footer a { color: #0d6efd; text-decoration: none; margin: 0 10px; }
-    @media(max-width:600px){ header h1{font-size:2em;} }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Professional Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #1E3A5F;
+      --navy-mid:  #2B5285;
+      --sky-bg:    #EBF4FF;
+      --accent:    #4A90D9;
+      --accent2:   #36B37E;
+      --card-bg:   #FFFFFF;
+      --text:      #2C3E50;
+      --muted:     #6B7C93;
+      --border:    #D6E8F7;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--sky-bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      color: #fff;
+      padding: 0 0 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(74,144,217,.15);
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(54,179,126,.1);
+    }
+
+    .nav-wrapper {
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      position: relative; z-index: 2;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 48px;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .nav-logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,.82);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      padding: 40px 48px 40px;
+      position: relative; z-index: 2;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .profile-ring {
+      width: 148px; height: 148px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2), #a78bfa);
+      flex-shrink: 0;
+      animation: spinRing 6s linear infinite;
+    }
+    @keyframes spinRing {
+      0%   { background: linear-gradient(135deg, var(--accent), var(--accent2), #a78bfa); }
+      50%  { background: linear-gradient(315deg, #a78bfa, var(--accent), var(--accent2)); }
+      100% { background: linear-gradient(135deg, var(--accent), var(--accent2), #a78bfa); }
+    }
+    .profile-img {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--navy);
+      background: #c8dcf0;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .profile-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .profile-placeholder {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7EB8F7 0%, #3B82F6 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.2rem; color: #fff;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .hero-stat-box {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 12px;
+      padding: 16px 20px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+      transition: background .2s;
+    }
+    .hero-stat-box:hover { background: rgba(255,255,255,.14); }
+    .hero-stat-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat-label {
+      font-size: .72rem;
+      color: rgba(255,255,255,.65);
+      font-weight: 500;
+    }
+
+    .hero-info { flex: 1; min-width: 240px; }
+    .hero-info h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .hero-title {
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 600;
+      background: rgba(74,144,217,.18);
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+    }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 18px; }
+    .hero-meta span {
+      color: rgba(255,255,255,.78);
+      font-size: .875rem;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .hero-meta i { color: var(--accent); }
+
+    .btn-group { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: .88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 7px;
+      border: none;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #357ABD; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid rgba(255,255,255,.5);
+      color: #fff;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.1); }
+
+    /* ── MAIN ── */
+    main {
+      flex: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 36px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 2px 12px rgba(30,58,95,.07);
+      margin-bottom: 24px;
+      transition: box-shadow .2s;
+    }
+    .card:hover { box-shadow: 0 6px 24px rgba(30,58,95,.12); }
+
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: var(--border);
+    }
+    .section-title i { color: var(--accent); font-size: .95rem; }
+
+    /* Skills */
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag {
+      background: var(--sky-bg);
+      border: 1.5px solid var(--border);
+      color: var(--navy-mid);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: .82rem;
+      font-weight: 600;
+      transition: all .2s;
+    }
+    .skill-tag:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .skill-bar-wrap { margin-bottom: 14px; }
+    .skill-bar-label {
+      display: flex; justify-content: space-between;
+      font-size: .85rem; font-weight: 600;
+      color: var(--text); margin-bottom: 5px;
+    }
+    .skill-bar-bg {
+      height: 8px; border-radius: 10px;
+      background: var(--sky-bg);
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%; border-radius: 10px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      width: 0;
+      transition: width 1s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* Experience / Education */
+    .timeline { position: relative; }
+    .tl-item {
+      display: flex; gap: 16px;
+      padding-bottom: 20px;
+      position: relative;
+    }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot-col { display: flex; flex-direction: column; align-items: center; }
+    .tl-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 3px solid var(--sky-bg);
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+    .tl-line {
+      width: 2px; flex: 1;
+      background: var(--border);
+      margin-top: 4px;
+    }
+    .tl-item:last-child .tl-line { display: none; }
+    .tl-body { flex: 1; }
+    .tl-role {
+      font-weight: 700; font-size: 1rem;
+      color: var(--navy);
+      font-family: 'Poppins', sans-serif;
+    }
+    .tl-company {
+      font-size: .88rem; color: var(--accent);
+      font-weight: 600; margin: 2px 0;
+    }
+    .tl-date {
+      font-size: .78rem; color: var(--muted);
+      background: var(--sky-bg);
+      padding: 2px 10px;
+      border-radius: 12px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .tl-desc {
+      font-size: .86rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .tl-desc li { margin-left: 14px; margin-bottom: 3px; }
+
+    /* Contact */
+    .contact-list { list-style: none; }
+    .contact-list li {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .88rem;
+      color: var(--text);
+    }
+    .contact-list li:last-child { border-bottom: none; }
+    .contact-list i {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: var(--sky-bg);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent);
+      flex-shrink: 0;
+      font-size: .9rem;
+    }
+
+    /* Social */
+    .social-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .social-btn {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 600;
+      transition: all .2s;
+    }
+    .social-btn.linkedin { background: #EBF4FF; color: #0A66C2; }
+    .social-btn.github   { background: #F0F0F0; color: #24292E; }
+    .social-btn.twitter  { background: #E8F5FE; color: #1DA1F2; }
+    .social-btn:hover { opacity: .85; transform: translateY(-1px); }
+
+    /* Languages */
+    .lang-row {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .lang-name { font-size: .9rem; font-weight: 600; }
+    .lang-dots { display: flex; gap: 5px; }
+    .lang-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+    .lang-dot.filled { background: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.7);
+      text-align: center;
+      padding: 20px 24px;
+      font-size: .85rem;
+    }
+    footer span { color: var(--accent); font-weight: 600; }
+
+    /* Print */
+    @media print {
+      header, footer { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .btn-group, nav .btn { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 28px 20px 0; gap: 24px; }
+      .hero-info h1 { font-size: 1.5rem; }
+      main { grid-template-columns: 1fr; padding: 20px 14px; }
+    }
+  </style>
 </head>
 <body>
 
+<!-- ══════════ HEADER ══════════ -->
 <header>
-    <h1>Rajnish Pandit</h1>
-    <p>Web Developer | Full Stack Developer</p>
-    <p>Email: your.email@example.com | GitHub: <a href="https://github.com/rajnishpandit" style="color:white;">rajnishpandit</a></p>
+  <div class="nav-wrapper">
+    <nav>
+      <div class="nav-logo">MY RESUME</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="btn btn-outline" onclick="window.print()">
+        <i class="fas fa-download"></i> Download CV
+      </button>
+    </nav>
+  </div>
+
+  <div class="hero">
+    <!-- Profile Photo — apni photo URL yahan daale -->
+    <div class="profile-ring">
+      <div class="profile-img">
+        <div class="profile-placeholder" id="profileIcon">
+          <i class="fas fa-user"></i>
+        </div>
+        <!-- PHOTO: agar photo upload karna ho to neeche ki line uncomment karo -->
+        <!-- <img id="photoPreview" src="your-photo.jpg" alt="Profile" style="display:none"/> -->
+      </div>
+    </div>
+
+    <div class="hero-info">
+      <h1 id="heroName">Rajnish Sharma</h1>
+      <div class="hero-title" id="heroTitle">Wordpress/Php Developer</div>
+      <div class="hero-meta">
+        <span><i class="fas fa-map-marker-alt"></i> <span id="heroCity">Mohali, India</span></span>
+        <span><i class="fas fa-envelope"></i> <span id="heroEmail">rajnishsharma19904@gmail.com</span></span>
+        <span><i class="fas fa-phone"></i> <span id="heroPhone">+91 62836 37752</span></span>
+      </div>
+      <div class="btn-group">
+        <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Contact Me</a>
+        <a href="#experience" class="btn btn-outline"><i class="fas fa-briefcase"></i> My Work</a>
+      </div>
+    </div>
+
+    <!-- Right side stats -->
+    <div class="hero-stats">
+      <div class="hero-stat-box">
+        <div class="hero-stat-num">5+</div>
+        <div class="hero-stat-label">Years Experience</div>
+      </div>
+      <div class="hero-stat-box">
+        <div class="hero-stat-num" style="color:#36B37E;">30+</div>
+        <div class="hero-stat-label">Projects Done</div>
+      </div>
+      <div class="hero-stat-box">
+        <div class="hero-stat-num" style="color:#a78bfa;">10+</div>
+        <div class="hero-stat-label">Happy Clients</div>
+      </div>
+      <div class="hero-stat-box">
+        <div class="hero-stat-num" style="color:#f59e0b;">3</div>
+        <div class="hero-stat-label">Certifications</div>
+      </div>
+    </div>
 </header>
 
-<section>
-    <h2>About Me</h2>
-    <p>I am a passionate web developer with experience in building responsive and modern web applications. Skilled in HTML, CSS, JavaScript, and Python.</p>
-</section>
+<!-- ══════════ MAIN ══════════ -->
+<main>
 
-<section>
-    <h2>Skills</h2>
-    <ul class="skills">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-        <li>React</li>
-    </ul>
-</section>
+  <!-- ── LEFT COLUMN ── -->
+  <aside>
 
-<section>
-    <h2>Projects</h2>
-    <ul>
-        <li><strong>Project 1:</strong> E-commerce website using HTML, CSS, and JavaScript.</li>
-        <li><strong>Project 2:</strong> Portfolio website hosted on GitHub Pages.</li>
-        <li><strong>Project 3:</strong> Web app using React and Firebase.</li>
-    </ul>
-</section>
+    <!-- Photo Upload -->
+    <div class="card">
+      <div class="section-title"><i class="fas fa-camera"></i> Profile Photo</div>
+      <div style="text-align:center">
+        <label for="photoUpload" style="cursor:pointer; display:inline-block; padding:10px 18px; background:var(--sky-bg); border:2px dashed var(--border); border-radius:10px; font-size:.85rem; color:var(--muted); transition:all .2s;"
+          onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+          <i class="fas fa-upload" style="color:var(--accent); margin-right:8px;"></i> Photo Upload Karein
+        </label>
+        <input type="file" id="photoUpload" accept="image/*" style="display:none" onchange="handlePhoto(this)"/>
+        <p style="font-size:.75rem; color:var(--muted); margin-top:8px;">JPG, PNG support</p>
+      </div>
+    </div>
 
-<section>
-    <h2>Experience</h2>
-    <ul>
-        <li><strong>Company Name</strong> – Web Developer (Jan 2023 – Present)</li>
-        <li><strong>Freelance Projects</strong> – Various clients (2022 – 2023)</li>
-    </ul>
-</section>
+    <!-- Contact -->
+    <div class="card" id="contact">
+      <div class="section-title"><i class="fas fa-address-card"></i> Contact</div>
+      <ul class="contact-list">
+        <li><i class="fas fa-envelope"></i> rajnishsharma19904@gmail.com</li>
+        <li><i class="fas fa-phone"></i> +91 62836 37752</li>
+        <li><i class="fas fa-map-marker-alt"></i> Mohali, Punjab</li>
+        <!--<li><i class="fas fa-globe"></i> www.aapkiwebsite.com</li>-->
+      </ul>
+    </div>
 
-<section>
-    <h2>Education</h2>
-    <ul>
-        <li>Bachelor of Technology in Computer Science – XYZ University (2018 – 2022)</li>
-    </ul>
-</section>
+    <!-- Skills with bars -->
+    <div class="card" id="skills">
+      <div class="section-title"><i class="fas fa-code"></i> Technical Skills</div>
+      <div class="skill-bar-wrap"><div class="skill-bar-label"><span>JavaScript</span><span>92%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92"></div></div></div>
+      <div class="skill-bar-wrap"><div class="skill-bar-label"><span>React.js</span><span>88%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88"></div></div></div>
+      <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Node.js</span><span>80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="80"></div></div></div>
+      <div class="skill-bar-wrap"><div class="skill-bar-label"><span>Python</span><span>75%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="75"></div></div></div>
+      <div class="skill-bar-wrap"><div class="skill-bar-label"><span>SQL / MongoDB</span><span>70%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" data-width="70"></div></div></div>
+    </div>
 
+    <!-- Languages -->
+    <div class="card">
+      <div class="section-title"><i class="fas fa-language"></i> Languages</div>
+      <div class="lang-row"><span class="lang-name">Hindi</span><div class="lang-dots"><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div></div></div>
+      <div class="lang-row"><span class="lang-name">English</span><div class="lang-dots"><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot"></div></div></div>
+      <div class="lang-row"><span class="lang-name">Marathi</span><div class="lang-dots"><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot filled"></div><div class="lang-dot"></div><div class="lang-dot"></div></div></div>
+    </div>
+
+    <!-- Social -->
+    <div class="card">
+      <div class="section-title"><i class="fas fa-share-alt"></i> Social</div>
+      <div class="social-row">
+        <a href="#" class="social-btn linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        <a href="#" class="social-btn github"><i class="fab fa-github"></i> GitHub</a>
+        <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i> Twitter</a>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ── RIGHT COLUMN ── -->
+  <section>
+
+    <!-- About -->
+    <div class="card" id="about">
+      <div class="section-title"><i class="fas fa-user-circle"></i> About Me</div>
+      <p style="line-height:1.8; color:var(--muted); font-size:.92rem;">
+        Main ek passionate software engineer hoon jiske paas <strong style="color:var(--navy)">5+ saal ka experience</strong> hai web development aur cloud technologies mein. Mujhe problem-solving, clean code likhna, aur naye technologies sikhna pasand hai. Maine kai enterprise-level projects deliver kiye hain jo lakhon users use karte hain.
+      </p>
+      <div style="display:flex; gap:16px; margin-top:18px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:120px; text-align:center; padding:16px; background:var(--sky-bg); border-radius:12px;">
+          <div style="font-size:1.8rem; font-weight:800; color:var(--accent); font-family:'Poppins',sans-serif;">5+</div>
+          <div style="font-size:.78rem; color:var(--muted);">Years Experience</div>
+        </div>
+        <div style="flex:1; min-width:120px; text-align:center; padding:16px; background:var(--sky-bg); border-radius:12px;">
+          <div style="font-size:1.8rem; font-weight:800; color:var(--accent2); font-family:'Poppins',sans-serif;">30+</div>
+          <div style="font-size:.78rem; color:var(--muted);">Projects Done</div>
+        </div>
+        <div style="flex:1; min-width:120px; text-align:center; padding:16px; background:var(--sky-bg); border-radius:12px;">
+          <div style="font-size:1.8rem; font-weight:800; color:#a78bfa; font-family:'Poppins',sans-serif;">10+</div>
+          <div style="font-size:.78rem; color:var(--muted);">Happy Clients</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="card" id="experience">
+      <div class="section-title"><i class="fas fa-briefcase"></i> Work Experience</div>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-role">Senior Software Engineer</div>
+            <div class="tl-company">TechCorp India Pvt. Ltd.</div>
+            <div class="tl-date"><i class="far fa-calendar-alt"></i> Jan 2022 – Present</div>
+            <ul class="tl-desc">
+              <li>React.js frontend aur Node.js backend develop kiya</li>
+              <li>Team ke 5 developers ko mentor kiya</li>
+              <li>System performance 40% improve ki</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-role">Software Developer</div>
+            <div class="tl-company">StartupXYZ</div>
+            <div class="tl-date"><i class="far fa-calendar-alt"></i> Jun 2020 – Dec 2021</div>
+            <ul class="tl-desc">
+              <li>E-commerce platform banaya 50k+ users ke liye</li>
+              <li>REST API integration aur DB optimization</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-role">Junior Developer</div>
+            <div class="tl-company">WebSolutions Co.</div>
+            <div class="tl-date"><i class="far fa-calendar-alt"></i> Jul 2019 – May 2020</div>
+            <ul class="tl-desc">
+              <li>HTML/CSS/JS se responsive websites banaye</li>
+              <li>Senior developers ke saath collaborate kiya</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="card" id="education">
+      <div class="section-title"><i class="fas fa-graduation-cap"></i> Education</div>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot-col"><div class="tl-dot" style="background:var(--accent2)"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-role">B.Tech – Computer Science</div>
+            <div class="tl-company">Mumbai University</div>
+            <div class="tl-date"><i class="far fa-calendar-alt"></i> 2015 – 2019 &nbsp;|&nbsp; CGPA: 8.7/10</div>
+            <p class="tl-desc">Data Structures, Algorithms, Web Development, DBMS, OS mein specialization</p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot-col"><div class="tl-dot" style="background:var(--accent2)"></div><div class="tl-line"></div></div>
+          <div class="tl-body">
+            <div class="tl-role">12th Science (PCM)</div>
+            <div class="tl-company">Maharashtra State Board</div>
+            <div class="tl-date"><i class="far fa-calendar-alt"></i> 2015 &nbsp;|&nbsp; 87.4%</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Tools & Tech -->
+    <div class="card">
+      <div class="section-title"><i class="fas fa-tools"></i> Tools & Technologies</div>
+      <div class="skills-grid">
+        <span class="skill-tag">HTML5</span><span class="skill-tag">CSS3</span><span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">React.js</span><span class="skill-tag">Next.js</span><span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Express.js</span><span class="skill-tag">MongoDB</span><span class="skill-tag">MySQL</span>
+        <span class="skill-tag">Git / GitHub</span><span class="skill-tag">Docker</span><span class="skill-tag">AWS</span>
+        <span class="skill-tag">Figma</span><span class="skill-tag">VS Code</span><span class="skill-tag">Postman</span>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
 <footer>
-    Connect with me: 
-    <a href="https://github.com/rajnishpandit">GitHub</a> | 
-    <a href="https://www.linkedin.com/in/rajnishpandit/">LinkedIn</a>
+  <p>© 2024 <span>Aapka Naam</span> · Sabhi adhikar surakshit hain · Mumbai, India</p>
+  <p style="margin-top:6px; font-size:.78rem; opacity:.6;">Made with <span style="color:#e74c3c;">♥</span> using HTML & CSS</p>
 </footer>
 
+<script>
+  // ── Skill bars animate on scroll ──
+  const bars = document.querySelectorAll('.skill-bar-fill');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.width = e.target.dataset.width + '%';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  bars.forEach(b => observer.observe(b));
+
+  // ── Photo Upload ──
+  function handlePhoto(input) {
+    if (!input.files || !input.files[0]) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const container = document.querySelector('.profile-img');
+      container.innerHTML = `<img src="${e.target.result}" alt="Profile Photo" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/>`;
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+
+  // ── Smooth nav highlight ──
+  const sections = document.querySelectorAll('[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) cur = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#'+cur
+        ? '#fff' : 'rgba(255,255,255,.82)';
+      a.style.fontWeight = a.getAttribute('href') === '#'+cur ? '700' : '500';
+    });
+  });
+
+  // ── Fade-in on scroll ──
+  const cards = document.querySelectorAll('.card');
+  const cardObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+  cards.forEach(c => {
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(20px)';
+    c.style.transition = 'opacity .5s ease, transform .5s ease';
+    cardObs.observe(c);
+  });
+</script>
 </body>
 </html>
